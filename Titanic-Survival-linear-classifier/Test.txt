@@ -1,0 +1,77 @@
+from google.colab import files
+import os
+print(os.listdir())
+import tensorflow as tf
+import numpy as np
+import pandas as pd
+
+dftrain=pd.read_csv('train.csv')
+dfeval=pd.read_excel('test.csv')
+y_train=dftrain.pop('Survived')
+y_eval=dfeval.pop('Survived')
+
+CATEGORICAL_DTYPE = ['Sex', 'Embarked','Cabin','Name']
+NUMERIC_DTYPE = ['Age', 'Fare', 'Pclass', 'SibSp', 'Parch']
+
+def fix_categorical_types(df):
+    df = df.copy()
+    for c in CATEGORICAL_DTYPE:
+        if c in df.columns:
+            if c == 'Embarked':
+                df[c] = df[c].fillna('S')
+            else:
+                df[c] = df[c].fillna(df[c].mode()[0])
+            df[c] = df[c].values.astype('str')
+    return df
+
+def fix_numeric_types(df):
+    df_copy = df.copy()
+    for n in NUMERIC_DTYPE:
+        if n in df_copy.columns:
+          df_copy[n] = df_copy[n].fillna(df_copy[n].median())
+    return df_copy
+
+dftrain_processed = fix_categorical_types(dftrain)
+dftrain_processed = fix_numeric_types(dftrain_processed)
+
+dfeval_processed = fix_categorical_types(dfeval)
+dfeval_processed = fix_numeric_types(dfeval_processed)
+
+print(dftrain['Cabin'].head())
+print(dftrain_processed['Cabin'].head())
+print(dftrain_processed.dtypes)
+
+CATEGORICAL_COLUMNS = ['Pclass', 'Sex', 'SibSp', 'Parch', 'Embarked','Cabin']
+NUMERIC_COLUMNS = ['Age', 'Fare']
+feature_columns = []
+for feature_name in CATEGORICAL_COLUMNS:
+    vocabulary = dftrain[feature_name].unique()
+    feature_columns.append(tf.feature_column.categorical_column_with_vocabulary_list(
+        feature_name,
+        vocabulary
+    ))
+for feature_name in NUMERIC_COLUMNS:
+   feature_columns.append(tf.feature_column.numeric_column(feature_name,dtype=tf.float32))
+
+def make_input_fn(data_df, label_df, num_epochs=10, shuffle=True, batch_size=32):
+  def input_function():
+    ds = tf.data.Dataset.from_tensor_slices((dict(data_df), label_df))
+    if shuffle:
+      ds= ds.shuffle(1000)
+      ds = ds.batch(batch_size).repeat(num_epochs)
+    return ds
+  return input_function
+
+train_input_fn = make_input_fn(dftrain, y_train)
+eval_input_fn = make_input_fn(dfeval, y_eval, num_epochs=1, shuffle=False)
+
+linear_est = tf.estimator.LinearClassifier(feature_columns=feature_columns)
+linear_est.train(train_input_fn)
+
+pred_dict = list(linear_est.predict(eval_input_fn))
+result = linear_est.evaluate(eval_input_fn)
+
+print(result[0]['probabilities'][1])
+
+clear_output()
+print(result['accuracy'])
