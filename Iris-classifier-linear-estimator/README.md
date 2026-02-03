@@ -32,7 +32,7 @@ Input Features
 [ • • • • • • • • • • ]  ← 30 neurons (Layer 1)
     │
     ▼
-[ • • • • • • • • • • ]  ← 10 neurons (Layer 2)  
+[ • • • • • • • ]  ← 10 neurons (Layer 2)  
     │
     ▼
 [ • • • ]               ← 3 neurons (Output Layer)
@@ -88,4 +88,5 @@ Testing Mode:
 
 - Neural Networks and deep learning 
 - Beginner-friendly ML projects
+
 
