@@ -95,9 +95,9 @@ Example
 
 # IRIS SPECIES CLASSIFIER BADGE
 *Test the dnn classifier*:tada:
-```
+
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keden49/Machine-learning-with-python-freecode-camp/blob/main/Iris-classifier-keras/Iris_Keras.ipynb)
-```
+
 ## HOW TO TEST THE MODEL
 1. Click the **Open in Colab** badge above.
 2. Go to **Runtime > Run All**.
@@ -111,3 +111,4 @@ Special thanks to the following platforms and tools that made this project possi
 2. TensorFlow: The core machine learning platform used for building and training the deep neural network.
 3. Keras: Used for its high-level API to define the model architecture and layers with simplicity and speed.
 4. AI Collaborators (Gemini & DeepSeek): Assisted in breaking down complex concepts and greatly helped me to understand the workflow
+
