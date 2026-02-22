@@ -13,6 +13,7 @@ For instance replacing legacy layers with updated Keras/TensorFlow implementatio
 - Weather Predictor	TensorFlow Probability - A Hidden Markov Model (HMM) utilizing transition and observation distributions.
 - Titanic Survival	Keras / Pandas	- Predictive modeling that implements sigmoid activation to predict passenger survival
 - Fashion MNIST Keras Model - Predictive model that classifies clothing images into various categories.
+- Convolutional Neural Network - Projects entailing introduction on Computer Vision.
   
 ## Deep Learning 
 
