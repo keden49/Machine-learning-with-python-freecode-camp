@@ -96,7 +96,7 @@ Example
 # IRIS SPECIES CLASSIFIER BADGE
 *Test the dnn classifier*:tada:
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keden49/Machine-learning-with-python-freecode-camp/blob/main/Iris-classifier-keras/Iris_Keras.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keden49/Machine-learning-with-python-freecode-camp/blob/main/Iris_Classifier/Iris_DNN_Classifier.ipynb)
 
 ## HOW TO TEST THE MODEL
 1. Click the **Open in Colab** badge above.
