@@ -18,8 +18,7 @@ The file `RPS.py` shows an example function that you will need to update. The ex
 
 <div align=”center”><img src="https://user-images.githubusercontent.com/46392391/92091018-c9639480-eded-11ea-97a1-fd1d93ea9fe6.jpeg" height="250"><div>
 
-## 2. [Cat and Dog Image Classifier](Certification%20Projects/Cat%20and%20Dog%20Image%20Classifier)
-
+## 2. Cat and Dog Image Classifier
 For this challenge, you will complete the code below to classify images of dogs and cats. You will use Tensorflow 2.0 and Keras to create a convolutional neural network that correctly classifies images of cats and dogs at least 63% of the time. (Extra credit if you get it to 70% accuracy!)
 
 Some of the code is given to you but some code you must fill in to complete this challenge. Read the instruction in each text cell so you will know what you have to do in each code cell.
