@@ -82,4 +82,4 @@ The final layer uses the learned patterns to decide which character is most like
 ## Credits
 - **freeCodeCamp:** Machine Learning with Python Curriculum  
 - **TensorFlow:** Deep learning framework used to build the model and comprehensive documentation
-- **Andrej Karpathy:** Source of the Shakespeare dataset  
+- **Andrej Karpathy:** Influential Researcher in Neural Networks [Vanilla RNN](https://gist.github.com/karpathy/d4dee566867f8291f086) 
