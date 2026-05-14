@@ -69,7 +69,7 @@ should return:
   ]
 ]
 ```
-I used https://datascienceplus.com/building-a-book-recommender-system-the-basics-knn-and-matrix-factorization/ for help.
+I used https://datascienceplus.com/building-a-book-recommender-system-the-basics-knn-and-matrix-factorization/ and https://youtu.be/4HKqjENq9OU?si=c1xCwfhBZvex_xmI for help.
 
 <div align=”center”><img src="https://user-images.githubusercontent.com/46392391/92113719-5d912400-ee0d-11ea-9862-a1fdb9b0b957.jpeg" height="250"><div>
 
