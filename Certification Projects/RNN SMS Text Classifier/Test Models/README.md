@@ -151,4 +151,101 @@ Overall, the project evolved from testing basic sequence learning to gaining a d
 
 ---
 
+
+# New Implementations/ Future considerations 
+
+**TF. AUTOTUNE**
+
+- Allows prefetching using tf.AUTOTUNE after slicing neccesary for preparing future batches while GPU processes current batches
+- Pararell Mapping when applying transformations like resizing/normalization, AUTOTUNE determines how many CPU cores should process elements in parallel
+- Prevents Gpu starvation whereby faster GPU sits idle because CPU resources are too slow
+- Dynamic Adaptation , if other processes uses CPU resources AUTOTUNE can scale back parallel cpu calls to avoid system lag
+
+**Pandas Factorization**
+
+Gets unique values from pandas dataframes and assigns unique integer values allowing for easier encoding train_df['Label']  returns a list with two items all unique values identified[1] and the unique integers[0]
+
+```
+pd.factorize(train_df['Label'])[0]
+```
+
+# Tokenizer vs TokenVectorization from Keras 
+
+<img width="691" height="427" alt="image" src="https://github.com/user-attachments/assets/92e92542-cd54-4bea-a68e-8cc3d6657917" />
+
+## The 5-Step ProcessWhen data passes through this modern layer, it undergoes five sequential transformations
+
+- Standardization: The layer cleans the raw input. By default, it converts all text to lowercase and strips punctuation.
+- Tokenization: The cleaned text is split into smaller units, typically individual words based on whitespace, though it can also split by character.
+- N-gram Generation (Optional): It can recombine individual words into multi-word groups (n-grams) to capture better local context.
+- Indexing: The layer maintains a vocabulary mapping (learned via the .adapt() method) that associates each unique token with a specific integer.
+- Output Transformation: It converts the tokens into a final numerical format. You can choose different output modes
+- Padding is synchronized process bot separate 
+
+```python
+# Vectorize the text data
+vectorizer = TextVectorization(output_mode='int', max_tokens=VOCAB_SIZE, output_sequence_length=MAX_SEQUENCE_LENGTH)
+vectorizer.adapt(train_dataset.map(lambda text, label: text))
+
+# Create a new version of the dataset where text is already numbers
+processed_ds = train_dataset.map(lambda x, y: (vectorizer(x), y))
+
+```
+lambda x : y feautures and labels pair , returns transformed sequences using vectorizer and their labels 
+.adapt() #learns on training data 
+
+# Code syntax 
+- Avoid writing separate blocks of code instead write them in a single block like
+
+```python
+ pred_label = "spam" if pred_prob >= 0.5 else "ham"
+```
+
+# Pandas cat.codes 
+```python
+y_train = df_train['y'].astype('category').cat.codes
+y_test  = df_test['y'].astype('category').cat.codes
+y_train[:5]
+
+```
+
+Pandas looks at the column, finds the unique values, and maps them internally. ```cat.codes``` This is the "extractor." Once the data is a category, .cat.codes pulls out the underlying integer representation for each row.
+
+```python
+bar = df_train['y'].value_counts() #considers unique counts 
+
+plt.bar(bar.index, bar) #bar.index actual labels
+plt.xlabel('Label')
+plt.title('Number of ham and spam messages')
+
+```
+
+# NLTK 
+
+Contains a module called stopwords for filtering non-essential words
+
+```python
+import re
+from nltk.stem import WordNetLemmatizer 
+from nltk.corpus import stopwords
+```
+
+# Lematization 
+
+Essentially this is to reduce vocabulary size by going to root form of words example "running", "rans", "ran" all become run this reduces size of a dataset.
+
+```python
+lemmatizer = WordNetLemmatizer()
+
+def clean_txt(txt):
+    txt = re.sub(r'([^\s\w])+', ' ', txt)
+    txt = " ".join([lemmatizer.lemmatize(word) for word in txt.split()
+                    if not word in stopwords_eng])
+    txt = txt.lower()
+    return txt
+     
+```
+
+     
+
 *Developed by keden49*
