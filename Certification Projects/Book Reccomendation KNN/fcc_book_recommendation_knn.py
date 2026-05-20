@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # import libraries (you may add additional imports but you may not have to)
 
 import numpy as np
@@ -35,10 +34,33 @@ df_ratings = pd.read_csv(
     usecols=['user', 'isbn', 'rating'],
     dtype={'user': 'int32', 'isbn': 'str', 'rating': 'float32'})
 
-# merge titles
+'''
+filtering columns
+counts are taken from the same dataframe
+'''
+# filtering users with 200+ ratings
+
+user_counts = df_ratings['user'].value_counts()
+valid_users = user_counts[user_counts >= 200].index
+
+# filtering books with more than 100 ratings
+
+
+book_counts = df_ratings['isbn'].value_counts() #returns frequencies of unique books
+
+# remove outliers
+# books with less than 100 ratings
+remove_outliers= book_counts[book_counts >= 100].index
+
+
+# keeps rows where user is valid and also valid book
+
+filtered_df = df_ratings[df_ratings['user'].isin(valid_users) & df_ratings['isbn'].isin(remove_outliers)]
+
+# merge occurs after filtering
 # filter book codes that were in df ratings but didnt exist in df books
 
-filtered_df = pd.merge(df_ratings, df_books, on='isbn', how='inner')
+filtered_df = pd.merge(filtered_df, df_books, on='isbn', how='inner')
 
 # drop authors column
 filtered_df = filtered_df.drop(columns = 'author', axis = 1)
@@ -67,27 +89,7 @@ ratings_count = filtered_df['isbn'].value_counts().values
 threshold = np.percentile(ratings_count,99)
 print(threshold)
 
-'''
-filtering columns
-counts are taken from the same dataframe
-'''
-# filtering users with 200+ ratings
-
-user_counts = filtered_df['user'].value_counts()
-valid_users = user_counts[user_counts >= 200].index
-
-# filtering books with more than 100 ratings
-
-book_counts = filtered_df['isbn'].value_counts() #returns frequencies of unique books
-
-# remove outliers
-# books with more than 1000 ratings and less than 100
-
-remove_outliers= book_counts[(book_counts >= 100) & (book_counts < 1000)].index
-
-# keeps rows where user is valid and also valid book
-
-filtered_df = filtered_df[filtered_df['user'].isin(valid_users) & filtered_df['isbn'].isin(remove_outliers)]
+# converting to categorical datatype
 
 filtered_df['isbn'] = filtered_df['isbn'].astype('category')
 filtered_df['user'] = filtered_df['user'].astype('category')
@@ -123,13 +125,14 @@ from sklearn import neighbors
 ## function to return recommended books - this will be tested
 def get_recommends(book):
 
- #check if title is valid
-  if book not in title_isbn:
-    print("Enter valid title")
-    return
-
   # create the first dimension
   recommended_books = [book]
+
+  #check if title is valid
+  if book not in title_isbn:
+
+    print(f"{book} has no ratings")
+    return recommended_books + []
 
   # second dimension
 
@@ -156,7 +159,6 @@ def get_recommends(book):
 
   distances, indices = distances.flatten(), indices.flatten()
 
-
   for index,row in enumerate(indices):
 
    # skips the first iteration to avoid recording the query point as a neighbor
@@ -178,11 +180,9 @@ def get_recommends(book):
 
   # append to main title
 
-  recommended_books.append(neighbors)
+  recommended_books.append(neighbors[::-1]) #reverse order of dataset
 
   return recommended_books
-
-get_recommends("Where the Heart Is (Oprah's Book Club (Paperback))")
 
 books = get_recommends("Where the Heart Is (Oprah's Book Club (Paperback))")
 print(books)
