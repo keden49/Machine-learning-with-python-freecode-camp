@@ -1,42 +1,41 @@
-## Machine Learning & Deep Learning Portfolio
-Welcome! This repository serves as a comprehensive portfolio of my work in Neural Networks and Deep Learning. 
-
-## Enhancements
-While many of these projects were developed as part of the FreeCodeCamp: Machine Learning with Python curriculum, I discovered that some concepts in the original program utilized outdated methods to perform machine learning operations. To ensure my portfolio reflects current  industry standards, I have updated and modified versions of some projects:
-For instance replacing legacy layers with updated Keras/TensorFlow implementations,this can be seen in the Titanic and Iris models.
-
-## Projects Feautured
-
-*Project	Core Technology	Description*
-
-- Iris Classifier	TensorFlow / Keras -	A [30-10-3] Deep Neural Network achieving high accuracy on categorical data.
-- Weather Predictor	TensorFlow Probability - A Hidden Markov Model (HMM) utilizing transition and observation distributions.
-- Titanic Survival	Keras / Pandas	- Predictive modeling that implements sigmoid activation to predict passenger survival
-- Fashion MNIST Keras Model - Predictive model that classifies clothing images into various categories.
-- Convolutional Neural Network - Projects entailing introduction on Computer Vision.
-  
-## Deep Learning 
-
-My interest in Neural Networks stems from a fascination with how we can translate complex mathematical logic into "intelligence. Personally, I beleive building a model isn't just about hitting an accuracy target but rather  understanding the optimization journey and the surgical precision required to tune a network for real-world data application. I am driven by the belief that the true depth of Deep Learning is yet to be uncovered. I am committed to exploring these hidden possibilities.
+# Machine Learning & Deep Learning Portfolio
 
 
 <img width="899" height="493" alt="image" src="https://github.com/user-attachments/assets/9e43cdd7-f4a1-4934-84bf-e1f9e3b7915f" />
 
+Welcome!
 
-## Credits
+This repository documents my exploration of Machine Learning and Deep Learning through a collection of projects, experiments, and model implementations. Each project is accompanied by clear and consise README that explains the underlying concepts and key observations made throughout the development process.  Many folders in this repository represent moments in the learning process rather than finished products. Some contain personal implementations, while others follow educational examples that helped build intuition for unfamiliar concepts. Together, they reflect an ongoing effort to better understand machine learning from both a practical and theoretical perspective. 
 
-- Freecode camp - For providing the foundational Machine Learning with Python curriculum and project prompts
-- TensorFlow/Keras for the deep learning framework
-- Open-source community for invaluable tools and resources
-- Online learning platforms that make data science education accessible
+## Areas Explored 
+
+Along the way, I explored a range of topics icluding:
+
+- *Neural Networks*
+- *Computer Vision*
+- *Natural Language Processing*
+- *Probabilistic Modeling*
+- *Transfer Learning*
+- *Reinforcement Learning*
+- *Five completed certification projects*
 
 
-## About me 
+## Acknowledgements
 
-I build models !
+- FreeCodeCamp for providing the Machine Learning with Python curriculum.
+- TensorFlow, Keras, and the broader open-source community for making modern machine learning accessible.
+- Educators, researchers, and contributors whose work continues to make learning possible for people around the world.
 
+## My Why
+
+What began as coursework and guided exercises, gradually evolved into a deeper interest. Many of the projects in this repository use relatively small datasets, allowing me to study different architectures, training techniques, and machine learning frameworks in a more controlled environment. Rather than focusing on increasingly complex problems, my goal was to develop an intuition for how these systems learn by studying the mechanisms behind them, in oder to get a better understanding of their inner workings.
+
+Thankyou !
 
 
 
 <img width="417" height="331" alt="image" src="https://github.com/user-attachments/assets/bb21242f-55de-4b78-8668-d239b5a47320" />
+
+
+
 
