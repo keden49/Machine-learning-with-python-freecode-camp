@@ -1,5 +1,5 @@
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keden49/Machine-learning-with-python-freecode-camp/blob/main/Frozen%20Lake%20Environment/Frozen_Lake_Environment(Visualization).ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keden49/Machine-learning-with-python-freecode-camp/blob/main/Reinforcement%20Learning/Frozen%20Lake%20Environment/Frozen_Lake_Environment(Visualization).ipynb)
 
 # Frozen Lake Environment 
 

@@ -1,3 +1,5 @@
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keden49/Machine-learning-with-python-freecode-camp/blob/main/Deep%20Learning/Iris_Classifier/Iris_DNN_Classifier.ipynb)
+
 ## DEEP NEURAL NETWORKS (TENSORFLOW 2.X)
 
 A Deep Neural Network is an artificial intelligence architecture composed of multiple layers of interconnected processing units (neurons) that transform input data through successive non-linear transformations to learn hierarchical representations and patterns. This project implements a Deep Neural Network using TensorFlow's Keras API a modern shift from older frameworks that provides intuitive, layer-by-layer model building
@@ -96,7 +98,7 @@ Example
 # IRIS SPECIES CLASSIFIER BADGE
 *Test the dnn classifier*:tada:
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keden49/Machine-learning-with-python-freecode-camp/blob/main/Iris_Classifier/Iris_DNN_Classifier.ipynb)
+
 
 ## HOW TO TEST THE MODEL
 1. Click the **Open in Colab** badge above.

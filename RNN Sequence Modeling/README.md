@@ -1,6 +1,6 @@
 # 🎭 Character-Based Play Generator (RNN)
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keden49/Machine-learning-with-python-freecode-camp/blob/main/RNN%20Character%20Generator/Play_Generator_RNN.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keden49/Machine-learning-with-python-freecode-camp/blob/main/RNN%20Sequence%20Modeling/Play_Generator_RNN.ipynb)
 
 ##  Project Overview
 This project explores how a reccurrent neural network can be used to generate human-like text. It focuses on training a model to predict the next character in a sequence, allowing it to produce new text that mimics the style and structure of the original data.
