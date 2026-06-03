@@ -1,3 +1,5 @@
+[![Open colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keden49/Machine-learning-with-python-freecode-camp/blob/main/Deep%20Learning/Fashion%20MNIST%20Model/Fashion_Keras.ipynb)
+
 # Project Overview 
 
  This project demonstrates how to build and train a simple neural network using TensorFlow and Keras to classify images from the Fashion MNIST dataset.
@@ -97,9 +99,7 @@ User is prompted to enter an image number where they can be able to visualie the
 
 # Test the model 🎉
 
-- Click the Colab Badge below
-
-[![Open colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keden49/Machine-learning-with-python-freecode-camp/blob/main/Fashion%20MNIST%20Model/Fashion_Keras.ipynb)
+- Click the Colab Badge above the Readme Page 
 
 - Click Runtime and then Run all to test out model
 
